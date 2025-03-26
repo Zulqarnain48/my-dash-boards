@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Courses</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      margin: 0;
+      padding: 20px;
+    }
+    .container {
+      max-width: 800px;
+      margin: auto;
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    .course {
+      background-color: #fff;
+      margin-bottom: 20px;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    .progress-bar {
+      background-color: #e0e0e0;
+      border-radius: 8px;
+      overflow: hidden;
+      height: 20px;
+      margin: 10px 0;
+    }
+    .progress {
+      background-color: #4caf50;
+      height: 100%;
+      transition: width 0.4s ease;
+    }
+    button {
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 600px) {
+      .container {
+        padding: 10px;
+      }
+      .course {
+        padding: 15px;
+      }
+      button {
+        width: 100%;
+        padding: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>My Courses</h1>
+    <div id="courses"></div>
+  </div>
+
+  <script>
+    const coursesData = [
+      { id: 1, name: 'Html Basics', progress: 80, lessonsCompleted: 40, totalLessons: 50, upcomingQuiz: 'March 30' },
+      { id: 2, name: 'Javascript for Beginners', progress: 30, lessonsCompleted: 6, totalLessons: 20, upcomingQuiz: 'April 5' },
+      { id: 3, name: 'React for Beginners', progress: 95, lessonsCompleted: 35, totalLessons: 40, upcomingQuiz: 'june 15' },
+      { id: 4, name: 'CCNA for intermediate', progress: 75, lessonsCompleted: 75, totalLessons: 100, upcomingQuiz: 'December 1' },
+      { id: 5, name: 'Python Basics', progress: 50, lessonsCompleted: 15, totalLessons: 30, upcomingQuiz: 'november 25' }
+    ];
+
+    const coursesContainer = document.getElementById('courses');
+
+    function renderCourses() {
+      coursesContainer.innerHTML = '';
+
+      coursesData.forEach(course => {
+        const courseElement = document.createElement('div');
+        courseElement.classList.add('course');
+
+        courseElement.innerHTML = `
+          <h2>${course.name}</h2>
+          <p>Lessons Completed: ${course.lessonsCompleted}/${course.totalLessons}</p>
+          <p>Upcoming Quiz: ${course.upcomingQuiz}</p>
+          <div class="progress-bar">
+            <div class="progress" style="width: ${course.progress}%;"></div>
+          </div>
+          <p>Progress: ${course.progress}%</p>
+          <button onclick="setReminder(${course.id})">Set Reminder</button>
+          <p id="reminder-${course.id}"></p>
+        `;
+
+        coursesContainer.appendChild(courseElement);
+      });
+    }
+
+    function setReminder(courseId) {
+      const time = prompt('Set reminder time (e.g., 7:00 PM)');
+      if (time) {
+        const reminderElement = document.getElementById(`reminder-${courseId}`);
+        reminderElement.textContent = `Reminder set for: ${time}`;
+        alert(`Reminder set for ${time}`);
+      }
+    }
+
+    renderCourses();
+  </script>
+</body>
+</html>
