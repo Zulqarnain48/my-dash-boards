@@ -1,0 +1,188 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.3s, color 0.3s;
+  }
+
+  .container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .header {
+    background-color: #00aaff;
+    color: white;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+    h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 10px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+    }
+  /* Button Styles */
+  .logout-btn {
+    background-color: #e74c3c;
+    color: white;
+  }
+
+  .dark-mode-btn {
+    background-color: white;
+    color: #007bff;
+  }
+
+  .logout-btn:hover {
+    background-color: #c0392b;
+  }
+
+  .dark-mode-btn:hover {
+    background-color: #f0f0f0;
+  }
+
+  /* Dark Mode */
+  .dark-mode {
+    background-color: #121212;
+    color: white;
+  }
+
+  .dark-mode .header {
+    background-color: #333;
+  }
+
+  .bar {
+    background-color: white;
+    height: 3px;
+    width: 25px;
+    margin: 4px 0;
+  }
+
+  nav {
+    padding: 20px;
+    background-color: #f0f0f0;
+    display: flex;
+    gap: 20px;
+  }
+
+  nav a {
+    text-decoration: none;
+    color: #007bff;
+  }
+
+  nav a:hover {
+    text-decoration: underline;
+  }
+
+  main {
+    padding: 20px;
+    flex-grow: 1;
+  }
+
+  .profile-card {
+    background-color: #4a8a8d;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    margin-left: 0%;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+  }
+
+  .profile-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 5);
+  }
+
+  .profile-card img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+  }
+
+  .progress-section {
+    margin-top: 20px;
+  }
+
+  .progress-bar {
+    width: 100%;
+    background-color: #e0e0e0;
+    border-radius: 20px;
+    overflow: hidden;
+  }
+
+  .progress-bar div {
+    height: 20px;
+    width: 60%;
+    background-color: #007bff;
+    text-align: center;
+    line-height: 20px;
+    color: white;
+  }
+
+  .notifications, .recent-activities {
+    margin-top: 20px;
+    background-color: #268eab;
+    padding: 15px;
+    border-radius: 10px;
+  }
+
+  footer {
+    background-color: #f0f0f0;
+    padding: 10px;
+    text-align: center;
+  }
+
+  footer a {
+    color: #007bff;
+    text-decoration: none;
+  }
+
+  @media (max-width: 600px) {
+    .header {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .buttons {
+      margin-top: 10px;
+    }
+
+    button {
+      width: 100%;
+    }
+  
+    nav {
+      display: none;
+      flex-direction: column;
+      width: 100%;
+      align-items: center;
+      background-color: #f0f0f0;
+    }
+  
+    nav.active {
+      display: flex;
+    }
+  
+    nav a {
+      padding: 10px 0;
+      width: 100%;
+      text-align: center;
+    }
+  }
