@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Courses</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: whitesmoke;
+      margin: 0;
+      padding: 20px;
+      transition: background-color 0.3s ease;
+    }
+    .container {
+      max-width: 800px;
+      margin: auto;
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+      transition: color 0.8s ease;
+    }
+    .course {
+      background-color: white;
+      color: rgb(21, 17, 17);
+      margin-bottom: 20px;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+    }
+    .course-header {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 15px;
+    }
+    .course-image {
+      width: 60px;
+      height: 60px;
+      border-radius: 12px;
+      object-fit: cover;
+      border: 2px solid #e0e0e0;
+      transition: all 0.3s ease;
+    }
+    .image-placeholder {
+      background: #f0f0f0;
+      width: 60px;
+      height: 60px;
+      border-radius: 8px;
+    }
+    .progress-bar {
+      background-color: #e0e0e0;
+      border-radius: 8px;
+      overflow: hidden;
+      height: 20px;
+      margin: 10px 0;
+    }
+    .progress {
+      background-color: #4caf50;
+      height: 100%;
+      transition: width 0.4s ease;
+    }
+    button {
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    .remove-btn {
+  background-color: #ff4444;
+  color: white;
+  margin-left: 0px;
+}
+
+.remove-btn:hover {
+  background-color: #cc0000;
+}
+    .dark-mode-btn {
+      background-color: white;
+      color: #007bff;
+    }
+    .dark-mode-btn:hover {
+      background-color: #f0f0f0;
+    }
+    .dark-mode {
+      background-color: #121212;
+      color: white;
+    }
+    body.dark-mode {
+      background-color: #121212;
+    }
+    body.dark-mode h1 {
+      color: white;
+    }
+    body.dark-mode .course {
+      background-color: #333;
+      color: white;
+    }
+    body.dark-mode .course-image {
+      border-color: #444;
+      filter: brightness(0.85);
+    }
+    body.dark-mode .image-placeholder {
+      background-color: #444;
+    }
+    .course:hover {
+      transform: translateY(-2px); 
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    }
+    .course:hover .course-image {
+      transform: scale(1.05);
+      border-color: #007bff;
+    }
+    @media (max-width: 600px) {
+      .container {
+        padding: 10px;
+      }
+      .course {
+        padding: 15px;
+      }
+      button {
+        width: 100%;
+        padding: 12px;
+      }
+    }
+    @media print {
+      .course-image {
+        filter: grayscale(100%);
+        border: 1px solid #ddd !important;
+      }
+      button {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div style="max-width: 800px; margin: auto; padding: 10px 0;">
+    <input type="text" id="searchInput" placeholder="Search courses..." style="padding: 10px; width: 60%; border-radius: 5px; border: 1px solid #ccc;">
+    <select id="progressFilter" style="padding: 10px; border-radius: 5px; border: 1px solid #ccc;">
+      <option value="all">All Progress</option>
+      <option value="0-25">0-25%</option>
+      <option value="26-50">26-50%</option>
+      <option value="51-75">51-75%</option>
+      <option value="76-100">76-100%</option>
+    </select>
+    <button class="dark-mode-btn" id="darkModeBtn" onclick="toggleDarkMode()">Dark Mode</button>
+  </div>
+
+  <div class="container">
+    <h1>My Courses</h1>
+    <div id="courses"></div>
+  </div>
+
+  <script src="zcourses.js"></script>
+</body>
+</html>
